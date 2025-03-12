@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 
     // Create UDP Echo Client on n0
     UdpEchoClientHelper echoClient(csmaInterfaces.GetAddress(nCsma), 7);  // Server IP and port
-    echoClient.SetAttribute("MaxPackets", UintegerValue(1));
+    echoClient.SetAttribute("MaxPackets", UintegerValue(2));
     echoClient.SetAttribute("Interval", TimeValue(Seconds(1.0)));
     echoClient.SetAttribute("PacketSize", UintegerValue(1024));
 
