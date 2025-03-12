@@ -85,6 +85,7 @@ int main(int argc, char *argv[])
     pointToPoint.EnablePcapAll("lab1");
     csma.EnablePcap("lab1_node", csmaDevices.Get(1), false);
     csma.EnablePcap("lab1_prom", csmaDevices.Get(1), true);
+    csma.EnablePcap("lab1_server_prom", csmaDevices.Get(nCsma), true);
 
     // Run simulation
     Simulator::Run();
