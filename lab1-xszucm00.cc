@@ -87,6 +87,16 @@ int main(int argc, char *argv[])
     csma.EnablePcap("lab1_prom", csmaDevices.Get(1), true);
     csma.EnablePcap("lab1_server_prom", csmaDevices.Get(nCsma), true);
 
+    // Generate routing tables
+    Ipv4StaticRoutingHelper routingHelper;
+    Ptr<OutputStreamWrapper> routingStream = Create<OutputStreamWrapper>(&std::cout);
+
+    // Routing table for n1
+    routingHelper.PrintRoutingTableAt(Seconds(5.0), p2pNodes.Get(1), routingStream);
+
+    // Routing table for  n3
+    routingHelper.PrintRoutingTableAt(Seconds(6.0), csmaNodes.Get(2), routingStream);
+
     // Run simulation
     Simulator::Run();
     Simulator::Destroy();
