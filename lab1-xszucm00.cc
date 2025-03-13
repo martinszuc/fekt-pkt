@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
     UdpEchoClientHelper echoClient(csmaInterfaces.GetAddress(nCsma), 7);  // Server IP and port
     echoClient.SetAttribute("MaxPackets", UintegerValue(2));
     echoClient.SetAttribute("Interval", TimeValue(Seconds(1.0)));
-    echoClient.SetAttribute("PacketSize", UintegerValue(1024));
+    echoClient.SetAttribute("PacketSize", UintegerValue(1500));
 
     ApplicationContainer clientApps = echoClient.Install(p2pNodes.Get(0));
     clientApps.Start(Seconds(2.0));
